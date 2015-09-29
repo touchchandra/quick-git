@@ -1,7 +1,9 @@
 /*
     Staging Area
-    Atomic commits     
+    Atomic commits
+    detached HEAD state.     
 */
+
 Git’s collaboration model is based on repository-to-repository interaction. 
 Instead of checking a working copy into SVN’s central repository, you push or pull commits from one repository to another.
 Developing a project revolves around the basic edit/stage/commit pattern
@@ -11,7 +13,7 @@ lets developers work in an isolated environment, deferring integration until the
 SVN commit consists of a diff compared to the original file added to the repository. Git, on the other hand, records the entire contents of each file in every commit.
 
 
-git init
+# git init
 The git init command creates a new Git repository.
 Needs to be executed only once.
 Common use is to create a central repository.
@@ -102,19 +104,82 @@ git status
 To view the state of the working directory and the staging area.
 
 
+git log
+The git log command displays committed snapshots
+only operates on the committed history.
+Display the entire commit history using the default formatting
+If the output takes up more than one screen, you can use Space to scroll and q to exit
+
+
+git log -n <limit>
+Limit the number of commits by <limit>. For example, git log -n 3 will display only 3 commits.
+
+git log --oneline
+Condense each commit to a single line. This is useful for getting a high-level overview of the project history.
+
+git log --stat
+include which files were altered and the relative number of lines that were added or deleted from each of them.
+
+git log -p
+Display the patch representing each commit.
+This shows the full diff of each commit, which is the most detailed view you can have of your project history
+
+git log --author="<pattern>"
+Search for commits with a commit message that matches <pattern>, 
+can be a plain string or a regular expression.
+
+git log <since>..<until>
+Show only commits that occur between <since> and <until>
+Both arguments can be either a commit ID, a branch name, HEAD, or any other kind of revision reference
+
+git log <file>
+Only display commits that include the specified file. This is an easy way to see the history of a particular file.
+
+example
+git log --graph --decorate --oneline
+—graph flag that will draw a text based graph of the commits on the left hand side
+—decorate adds the names of branches or tags of the commits
+—oneline shows the commit information on a single line
+
+git log --author="John Smith" -p hello.py
+display a full diff of all the changes John Smith has made to the file hello.py
+
+git log --oneline master..some-feature
+comparing branches
+
+git checkout
+checking out files
+checking out commits and 
+checking out branches
+
+git checkout master
+Return to the master branch
+
+git checkout <commit> <file>
+urns the <file> that resides in the working directory into an exact copy of the one from <commit>
+adds it to the staging area
+
+git checkout <commit>
+Update all files in the working directory to match the specified commit. 
+can use either a commit hash or a tag as the <commit> argument. 
+This will put you in a detached HEAD state.
 
 
 
 
 
-or create a new repository on the command line
-echo # quick-git >> README.md
-git init
-git add README.md
-git commit -m "first commit"
-git remote add origin https://github.com/touchchandra/quick-git.git
-git push -u origin master
 
+
+
+
+
+
+
+
+
+
+
+Create a new repository on the command line
 echo # quick-git >> README.md
 git init
 git add README.md
