@@ -257,6 +257,31 @@ git reset --hard <commit>
 ```
 Move the current branch tip backward to <commit> and reset both the staging area and the working directory to match. This obliterates not only the uncommitted changes, but all commits after <commit>, as well.
 
+# git clean
+The git clean command removes untracked files from your working directory. This is really more of a convenience command, since it’s trivial to see which files are untracked with git status and remove them manually. Like an ordinary rm command, git clean is not undoable, so make sure you really want to delete the untracked files before you run it.
+The git reset --hard and git clean -f commands are if you want to clean random development
+
+```sh
+git clean -n
+```
+Show you which files are going to be removed without actually doing it.
+
+```sh
+git clean -f
+```
+Remove untracked files from the current directory. 
+The -f (force) flag is required unless the 'clean.requireForce' configuration option is set to false (it's true by default). 
+This will not remove untracked folders or files specified by .gitignore.
+
+```sh
+git clean -df
+```
+Remove untracked files and untracked directories from the current directory.
+
+```sh
+git clean -xf
+```
+Remove untracked files from the current directory as well as any files that Git usually ignores.
 
 
 # Examples
