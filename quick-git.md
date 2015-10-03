@@ -329,7 +329,7 @@ git push -u origin master
 git remote add origin https://github.com/touchchandra/quick-git.git
 git push -u origin master
 ```
-# Remove all the local uncomitted changes
+### Remove all the local uncomitted/staged changes
 Warning : cannot undo
 ```sh
 git reset --hard HEAD
