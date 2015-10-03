@@ -109,7 +109,11 @@ Stage all changes in <directory> for the next commit.
 ```sh
  git add -p
 ```
-(Use y to stage the chunk, n to ignore the chunk, s to split it into smaller chunks, e to manually edit the chunk, and q to exit.)
+- y : to stage the chunk
+- n : to ignore the chunk
+- s : to split it into smaller chunks
+- e : to manually edit the chunk
+- q to exit
 
 # git commit
 Commit the staged snapshot
