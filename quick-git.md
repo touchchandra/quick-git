@@ -1,8 +1,37 @@
-/*
-    Staging Area
-    Atomic commits
-    detached HEAD state.     
-*/
+# Keywords
+- .git/config
+- ~/gitconfig
+- .gitignore
+- config
+- git
+- init
+- clone
+- add
+- commit
+- pull
+- push
+- merge
+- fetch
+- clean
+- checkout
+- revert
+- reset
+- clean
+- log
+- status
+- rebase
+- reflog
+- remote
+- branch
+
+# Terminology
+- Staging, Snapshot, Index
+- Atomic Commits
+- Detached HEAD State
+- Fast-Forward-Merge
+- Origin
+- Master     
+- Conflicts
 
 >Git’s collaboration model is based on repository-to-repository interaction.
 Instead of checking a working copy into SVN’s central repository, you push or pull commits from one repository to another. Developing a project revolves around the basic edit/stage/commit pattern Git developers have the opportunity to accumulate commits in their local repo. Staging area is a buffer between the working directory and the project history. lets developers work in an isolated environment, deferring integration until they’re at a convenient break point. SVN commit consists of a diff compared to the original file added to the repository. Git, on the other hand, records the entire contents of each file in every commit.
