@@ -215,31 +215,65 @@ Update all files in the working directory to match the specified commit.
 can use either a commit hash or a tag as the <commit> argument. 
 This will put you in a detached HEAD state.
 
+# git revert
+The git revert command undoes a committed snapshot. But, instead of removing the commit from the project history, it figures out how to undo the changes introduced by the commit and appends a new commit with the resulting content. This prevents Git from losing history, which is important for the integrity of your revision history and for reliable collaboration.
+
+```sh
+ git revert
+```
+```sh
+git revert <commit>
+```
+Generate a new commit that undoes all of the changes introduced in <commit>, then apply it to the current branch.
+should be used when you want to remove an entire commit from your project history.
+
+# Reverting vs. Resetting
+It's important to understand that git revert undoes a single commit—it does not “revert” back to the previous state of a project by removing all subsequent commits. In Git, this is actually called a reset, not a revert.
+
+# git reset
+It can be used to remove committed snapshots.
+It’s more often used to undo changes in the staging area and the working directory. 
+In either case, it should only be used to undo local changes
+You should never reset snapshots that have been shared with other developers.
+
+```sh
+git reset
+```
+Reset the staging area to match the most recent commit, but leave the working directory unchanged. 
+This unstages all files without overwriting any changes, giving you the opportunity to re-build the staged snapshot from scratch.
+
+```sh
+git reset --hard
+```
+Reset the staging area and the working directory to match the most recent commit. In addition to unstaging changes, the --hard flag tells Git to overwrite all changes in the working directory, too. Put another way: this obliterates all uncommitted changes, so make sure you really want to throw away your local developments before using it.
+
+```sh
+git reset <commit>
+```
+Move the current branch tip backward to <commit>, reset the staging area to match, but leave the working directory alone. All changes made since <commit> will reside in the working directory, which lets you re-commit the project history using cleaner, more atomic snapshots.
+
+```sh
+git reset --hard <commit>
+```
+Move the current branch tip backward to <commit> and reset both the staging area and the working directory to match. This obliterates not only the uncommitted changes, but all commits after <commit>, as well.
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-Create a new repository on the command line
+# Examples
+### 1. Create a new repository on the command line
+```sh
 echo # quick-git >> README.md
 git init
 git add README.md
 git commit -m "first commit"
 git remote add origin https://github.com/touchchandra/quick-git.git
 git push -u origin master
+```
 
-push an existing repository from the command line
+### 2. push an existing repository from the command line
+```sh
 git remote add origin https://github.com/touchchandra/quick-git.git
 git push -u origin master
+```
 
 
