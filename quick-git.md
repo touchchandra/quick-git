@@ -329,5 +329,21 @@ git push -u origin master
 git remote add origin https://github.com/touchchandra/quick-git.git
 git push -u origin master
 ```
-
-
+# Remove all the local uncomitted changes
+Warning : cannot undo
+```sh
+git reset --hard HEAD
+git clean -f -d
+git pull
+```
+```sh
+git fetch origin
+git reset --hard origin/master
+```
+```sh
+git checkout <your-branch> -f
+#and then do a clean up (Removes untracked files from the working tree):
+git clean -f
+#If you want to remove untracked directories in addition to untracked files:
+git clean -fd
+```
