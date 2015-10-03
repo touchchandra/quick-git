@@ -4,13 +4,8 @@
     detached HEAD state.     
 */
 
-Git’s collaboration model is based on repository-to-repository interaction. 
-Instead of checking a working copy into SVN’s central repository, you push or pull commits from one repository to another.
-Developing a project revolves around the basic edit/stage/commit pattern
-Git developers have the opportunity to accumulate commits in their local repo.
-Staging area is a buffer between the working directory and the project history.
-lets developers work in an isolated environment, deferring integration until they’re at a convenient break point.
-SVN commit consists of a diff compared to the original file added to the repository. Git, on the other hand, records the entire contents of each file in every commit.
+>Git’s collaboration model is based on repository-to-repository interaction.
+Instead of checking a working copy into SVN’s central repository, you push or pull commits from one repository to another. Developing a project revolves around the basic edit/stage/commit pattern Git developers have the opportunity to accumulate commits in their local repo. Staging area is a buffer between the working directory and the project history. lets developers work in an isolated environment, deferring integration until they’re at a convenient break point. SVN commit consists of a diff compared to the original file added to the repository. Git, on the other hand, records the entire contents of each file in every commit.
 
 
 # git init
@@ -24,17 +19,19 @@ Common use is to create a central repository.
 Create an empty Git repository in the specified directory
 
 ```sh
- git init --bare <directory>
+ git init --bare <directory_name.git>
 ```
 Initialize an empty Git repository, but omit the working directory. 
 Doesn’t have a working directory
 Impossible to edit files and commit changes in that repository.
 Central repositories should always be created as bare repositories.
 All Git work-flows, the central repository is bare, and developers local repositories are non-bare
-example
+##### Example
+```sh
 SSH <user>@<host>
 cd path/above/repo
 git init --base <my-central-project.git>
+```
 
 # git clone
 Copies an existing Git repository.
@@ -63,10 +60,11 @@ generally a one-time operation
 lets you configure your Git installation (or an individual repository) from the command line.
 Define everything from user info, preferences, behavior of a repository
 All configuration options are stored in plaintext files, so the git config command is really just a convenient command-line interface
-<repo>/.git/config – Repository-specific settings.
-~/.gitconfig – User-specific settings. This is where options set with the --global flag are stored.
+```sh
+<repo>/.git/config –> Local Repository-specific settings.
+~/.gitconfig –> User-specific settings. options set with --global flag.
 $(prefix)/etc/gitconfig – System-wide settings.
-
+```
 ```sh
  git config user.name <name>
 ```
