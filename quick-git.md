@@ -283,6 +283,9 @@ Move the current branch tip backward to <commit>, reset the staging area to matc
 
 ```sh
 git reset --hard <commit>
+
+# resetting one commit
+git reset --hard HEAD~1 
 ```
 Move the current branch tip backward to <commit> and reset both the staging area and the working directory to match. This obliterates not only the uncommitted changes, but all commits after <commit>, as well.
 
